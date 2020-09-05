@@ -9,11 +9,17 @@ import {
     fetchOrder
 } from './orders';
 
+import {
+    auth
+} from './auth';
+
+
 export default {
     addIngredients,
     removeIngredients,
     initIngredients,
     purchaseBurger,
     purchaseInit,
-    fetchOrder
+    fetchOrder,
+    auth
 };

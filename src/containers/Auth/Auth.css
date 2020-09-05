@@ -1,0 +1,28 @@
+.Auth {
+    margin: 20px auto;
+    width: 80%;
+    text-align: center;
+    box-shadow: 0 2px 3px #ccc;
+    border: 1px solid #eee;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 600px) {
+    .Auth {
+        width: 500px;
+    }
+}
+
+.Label li{
+    display: inline-block;
+    margin: 0 50px;
+    padding: 12px;
+    border: 1px solid rgb(5, 28, 92);
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.Active{
+    background-color: #1a73e8;
+    color: white;
+}
