@@ -10,23 +10,7 @@ import actions from '../../store/actions/index';
 class Orders extends Component {
 
     componentDidMount() {
-        this.props.fetchAllOrders();
-        // axios.get('/order.json')
-        //     .then(res => {
-        //         console.log(res);
-        //         const fetchedOrders = [];
-        //         for (let key in res.data) {
-        //             fetchedOrders.push({
-        //                 ...res.data[key],
-        //                 id: key
-        //             });
-        //         }
-        //         this.setState({loading: false, orders: fetchedOrders});
-        //     })
-        //     .catch(err => {
-        //         console.log(err);
-        //         this.setState({loading: false});
-        //     });
+        this.props.fetchAllOrders(this.props.token);
     }
 
     render () { 
@@ -50,13 +34,14 @@ class Orders extends Component {
 const mapStateToProps = state => {
     return{
         orders : state.order.orders,
-        loading: state.order.loading
+        loading: state.order.loading,
+        token : state.auth.token
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return{
-        fetchAllOrders : () => dispatch(actions.fetchOrder())
+        fetchAllOrders : (token) => dispatch(actions.fetchOrder(token))
     }
 }
 

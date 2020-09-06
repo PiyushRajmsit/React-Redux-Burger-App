@@ -78,7 +78,9 @@ class BurgerBuilder extends Component {
                         disabled={disabledInfo}
                         purchasable={this.updatePurchaseState(this.props.ingredients)}
                         ordered={this.purchaseHandler}
-                        price={this.props.totalPrice} />
+                        price={this.props.totalPrice}
+                        isAuthenticated={this.props.isAuthenticated}
+                        />
                 </Aux>
             );
             orderSummary = <OrderSummary
@@ -106,7 +108,8 @@ const mapStateToProps = state => {
     return{
         ingredients : state.burgerBuilder.ingredients,
         totalPrice : state.burgerBuilder.totalPrice,
-        error : state.burgerBuilder.error
+        error : state.burgerBuilder.error,
+        isAuthenticated : state.auth.token !== null
     }
 }
 
