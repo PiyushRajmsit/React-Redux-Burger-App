@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import {Redirect} from 'react-router-dom';
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 import Styles from './Auth.css';
@@ -112,6 +113,11 @@ class Auth extends Component{
                 config: this.state.controls[key]
             });
         }
+        let redirectCheck = null;
+        if(this.props.isAuthenticated){
+            redirectCheck = <Redirect to="/"/>
+        }
+
         let form = (
             <form onSubmit={this.submitHandler}>
                 {formElementsArray.map(formElement => (
@@ -143,6 +149,7 @@ class Auth extends Component{
                 </ul>);
         return(
             <div className={Styles.Auth}>
+                {redirectCheck}
                 {loginSignUp}
                 {form}
             </div>
@@ -154,7 +161,8 @@ class Auth extends Component{
 const mapStateToProps = state =>{
     return{
         loading : state.auth.loading,
-        error : state.auth.error
+        error : state.auth.error,
+        isAuthenticated: state.auth.token !== null
     }
 }
 

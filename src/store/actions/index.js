@@ -10,7 +10,9 @@ import {
 } from './orders';
 
 import {
-    auth
+    auth,
+    logout,
+    authCheckState
 } from './auth';
 
 
@@ -21,5 +23,7 @@ export default {
     purchaseBurger,
     purchaseInit,
     fetchOrder,
-    auth
+    auth,
+    logout,
+    authCheckState
 };
